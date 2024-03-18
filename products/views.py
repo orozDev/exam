@@ -10,10 +10,8 @@ def main(request):
     product = Product.objects.all()
     query_params = request.GET.get("search")
     if query_params:
-        print("data", query_params)
-        print("data", query_params)
         product = product.filter(title__icontains=query_params)
-        print(product)
+        
 
     paginator = Paginator(product, 2)
     page_number = int(request.GET.get('page', 1))
