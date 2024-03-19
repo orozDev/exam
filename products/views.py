@@ -20,6 +20,7 @@ def main(request):
         'products': page, 'category': category,
     }
     return render(request, 'main.html', context)
+    
 def cat(request, pk):
     category = Category.objects.all()
     product = Product.objects.filter(category=pk)
@@ -34,6 +35,7 @@ def cat(request, pk):
         'products': product, 'category': category,
     }
     return render(request, 'main.html', context)
+    
 def product_detail(request, pk):
     category = Category.objects.all()
     product = get_object_or_404(Product, id=pk)
